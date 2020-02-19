@@ -1,0 +1,665 @@
+/* Byron Filer 2019 */
+
+/* Setting Defaults For Sizing & Font */
+* {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+html, body {
+    width:100%;
+    height:100%;
+    text-align: left;
+}
+
+html {
+    background-color: grey;
+}
+
+/* Header Content That Is Relevant To Both */
+/* Blue focus box when clicked is not visually pleasing, this disables it */
+.headerLink:focus{
+    outline: none;
+}
+
+.postFullscreen{
+    padding-bottom: 75px;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+#initialBoxScreen{
+    flex: 1 0 auto;
+    color: white;
+    padding: 8px;
+    text-align: center;
+    height: auto;
+}
+
+header{
+    background-color: #FFFFFF;
+    color: #222;
+    width: 100%;
+}
+
+.headerText{
+    font-size: 22px;
+}
+
+.headerLink{
+    background-color: #FFFFFF;
+    color: #222;
+}
+
+/* Header Design Desktop Standard */
+@media only screen and (min-width: 550px) {
+    header{
+        padding-top: 25px;
+        padding-bottom: 25px;
+        display: inline-block;
+        width: 100%;
+        text-transform: uppercase;
+    }
+
+
+    .headerText{
+        display: inline;
+        margin-left: 25px;
+        margin-right: 25px;
+        background-color: #222;
+        color: white;
+        border-radius: 0px;
+        padding: 5px;
+    }
+
+
+    .headerLink{
+        text-decoration: none;
+        border-radius: 0;
+        margin-left: 10px;
+    }
+
+    /* Reminds Users it is interactive */
+    .headerLink:hover{
+        border-top: 1px solid #000;
+        border-bottom: 1px solid #000;
+    }
+}
+
+/* Header Design Mobile Portrait */
+@media only screen and (max-width: 550px) {
+    .headerText{
+        padding-left: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        text-transform: uppercase;
+    }
+
+    .headerLink{
+        text-decoration: none;
+        display: block;
+        padding-left: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        text-transform: uppercase;
+    }
+}
+
+/* Content Box Are Dependent on Screens */
+.contentBox{
+    padding: 5px;
+    border-radius: 2px;
+    overflow: auto;
+    display: inline-block;
+    background-color: #dedede;
+    color: black;
+    opacity: 0.95;
+    text-align: left;
+}
+
+
+
+@media only screen and (min-width: 470px){
+    .contentBox{
+        height: 270px;
+        width: 450px;
+    }
+}
+
+/* Fix This For Stupid Screens that Don't Exist */
+@media only screen and (max-width: 470px){
+    .contentBox{
+        height: 256px;
+        width: 80%;
+    }
+}
+
+.contentBoxTitle{
+    text-align: left;
+    font-size: 22px;
+    padding: 10px;
+}
+
+/* Footer */
+footer{
+    background-color: #FFFFFF;
+    color: #222;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    bottom:0;
+    left:0;
+    width:100%;
+    text-transform: uppercase;
+}
+.footerText{ text-align: center; }
+
+/* Fills in the bottom bit past the screen getting too big */
+@media only screen and (min-height: 1940px){
+    footer{ position:fixed;}
+}
+
+
+.backgroundImage{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    filter: blur(50px);
+    -webkit-filter: blur(13px);
+    -moz-filter: blur(13px);
+    -o-filter: blur(13px);
+    -ms-filter: blur(13px);
+    filter: blur(13px);
+    /* background-color: #adb1ae; */
+    opacity: 0.5;
+    background: url(https://venngage-wordpress.s3.amazonaws.com/uploads/2018/09/Colorful-Geometric-Simple-Background-Image.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+}
+
+.tabSelection{
+    border-width: 1px;
+    border-style: solid;
+    margin-right: 25px;
+    margin-left: 25px;
+}
+
+.weekContentSpacing{
+    width: calc(100% - 50px);
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.readMore{
+    display: block;
+    width: 100%;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+    margin: 0;
+    border: 1px solid #FFF;
+    text-align: center;
+    background-color: #FFF;
+}
+
+.postInfoContent{
+    height: 72%;
+    padding-left: 5px;
+}
+
+/* Title's used on the learning journal big entries */
+.subMainTextMajor{
+    text-decoration: underline;
+    padding-left: 5px;
+}
+
+.subMainTextMinor{
+    padding-left: 5px;
+}
+
+/* Image Styling */
+/* Less efficent but was requested over inline css */
+
+.width80Percent{
+    width: 80%;
+}
+.width70Percent{
+    width: 70%;
+}
+.width60Percent{
+    width: 60%;
+}
+
+
+/* Intentional Targetting ID as Unique */
+#week3_1_img{
+    width: 60%;
+    padding-left: 10px;
+    padding-top: 10px
+}
+/* Intentional Targetting Unique Class */
+.week11_12_0_img{
+    width: 80%;
+    padding-top: 20px;
+}
+
+/* Do pad left 5px if using small thingy in tutorial.css*/
+
+/* Interaction.css */
+/* CSS Animation from: https://stackoverflow.com/questions/8449933/animation-css3-display-opacity */
+
+@-webkit-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+/* responsive image */
+img {
+    width: 100%;
+}
+
+/* Most of the stylistic stuff has been removed as it doesn't affect the rest */
+
+/* post nav control, next or previous story */
+.post_nav {
+    position:fixed;
+    top:50%;
+}
+
+.post_nav .right {
+    position:fixed;
+    right:0;
+    margin-right:10px;
+    font-size: 32px;
+    cursor:pointer;
+    font-weight: bold;
+}
+
+.post_nav .left {
+    position:fixed;
+    left:0;
+    margin-left:10px;
+    font-size: 32px;
+    cursor:pointer;
+    font-weight: bold;
+}
+
+/* close button */
+.close_btn {
+    position:absolute;
+    right:10px;
+    top:10px;
+    border:1px solid #000;
+    border-radius:100%;
+    width:20px;
+    height:20px;
+    text-indent:5.5px;
+    cursor:pointer;
+}
+
+/* hiding all input with id week */
+/* no issues */
+input[id^="week"] {
+    display:none;
+}
+
+/* if any of the weeks were selected, show postFullscreen */
+@media screen and (min-width: 1500px){
+    input[id^="week"]:checked ~ #postFullscreen {
+        display:block;
+        padding-bottom: 75px;
+    }
+}
+@media only screen and (max-width: 1500px){
+    input[id^="week"]:checked ~ #postFullscreen {
+        display:block;
+    }
+}
+/* if the default is checked hide the close button. Probably could do this in a better way. */
+input[id="default"]:checked ~ #postFullscreen .close_btn {
+    display:none;
+}
+
+/* selecting the post corresponding to the week */
+#week1:checked ~ #postFullscreen div[id="week1_story"],
+#week2:checked ~ #postFullscreen div[id="week2_story"],
+#week3:checked ~ #postFullscreen div[id="week3_story"],
+#week4:checked ~ #postFullscreen div[id="week4_story"],
+#week5:checked ~ #postFullscreen div[id="week5_story"],
+#week6:checked ~ #postFullscreen div[id="week6_story"],
+#week7:checked ~ #postFullscreen div[id="week7_story"],
+#week8:checked ~ #postFullscreen div[id="week8_story"],
+#week9:checked ~ #postFullscreen div[id="week9_story"],
+#week10:checked ~ #postFullscreen div[id="week10_story"],
+#week11:checked ~ #postFullscreen div[id="week11_story"],
+#week12:checked ~ #postFullscreen div[id="week12_story"]
+{
+display:block;
+/* fade in animation, can be removed if needed */
+-webkit-animation: fadeInFromNone 0.58s ease-out;
+-moz-animation: fadeInFromNone 0.5s ease-out;
+-o-animation: fadeInFromNone 0.5s ease-out;
+animation: fadeInFromNone 0.5s ease-out;
+}
+
+/* if any of the radio buttons are selected, hide the initialBoxScreen. selecting default to show the initialBoxScreen */
+input[id^="week"]:checked ~ #initialBoxScreen {
+  display:none;
+}
+
+/* sets all the postFullscreen stories to hidden. */
+#postFullscreen *[id^="week"] {
+  display:none;
+}
+
+#initialBoxScreen{
+    padding-bottom: 75px;
+}
+
+/* Interactions END */
+
+/* Tutorial CSS */
+
+/* Both CSS */
+
+.title{
+    font-size: 22px;
+    text-decoration: underline;
+    padding-left: 5px;
+    padding-top: 5px;
+}
+
+.modelDetailBox{
+    border-radius: 2px;
+    margin: 5px;
+    background-color: #dedede;
+    opacity: 0.9;
+}
+
+/* Left Side CSS */
+
+.leftSideContent{
+    width: 100%;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+/* Ride Right Side CSS */
+
+.rightSideContent{
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.pageMockupSubheader{
+    text-decoration: underline;
+    padding-left: 3px;
+    padding-top: 5px;
+}
+
+.pageMockupSmalltext{
+    padding-left: 3px;
+}
+
+/* Footer Manipulation */
+
+#tutorialFooter{
+    position: fixed;
+}
+
+/* Small Screen */
+@media screen and (min-width: 1500px){
+    .contentGrid{
+        display: grid;
+        grid-template-columns: auto auto auto;
+        margin-bottom: 10px;
+        width: 99.5%;
+        height: calc(100% - 150px);
+        padding-bottom: 10px;
+    }
+    .subMainTextMinorRight{
+        padding-left: 5px;
+    }
+    footer{
+        position: fixed;
+    }
+}
+@media screen and (max-width: 1500px){
+    .rightSideContent{
+        height: auto;
+        padding-bottom: 70px;
+    }
+}
+
+/* Tutorial END */
+
+/* Contact CSS */
+
+/* Byron Filer 2019 */
+
+/* Footer Manipulation */
+@media only screen and (min-height: 645px){
+    #contactFooter{
+
+        position:fixed;
+    }
+}
+
+@media screen and (max-width: 480px) and (max-height: 695px){
+    #contactFooter{
+        flex-shrink: 1;
+        position: static;
+    }
+}
+
+@media only screen and (max-height: 985px) and (max-width: 550px){
+    #contactFooter{
+        position: static;
+    }
+}
+
+@media screen and (max-height: 770px){
+    #contactFooter{
+        position: static;
+    }
+}
+/* Form: Shrunk, Header: Full */
+@media only screen and (max-height: 945px) and (max-width: 700px) and (min-width: 550px){
+    #contactFooter{
+        position: static;
+    }
+}
+
+/* Contact Form */
+/* Contact Form Style */
+
+.contactForm {
+    border-radius: 2px;
+    background-color: #dedede;
+    padding: 20px;
+    color: black;
+}
+
+.background {
+    padding: 15px;
+}
+
+input:focus{
+    outline: none;
+}
+textarea:focus{
+    outline: none;
+}
+
+/* Placeholder Text */
+input::placeholder {
+    color: black;
+    opacity: 0.9;
+}
+
+textarea::placeholder{
+    color: black;
+    opacity: 0.9;
+}
+
+
+/* Button Styling */
+input[type=submit], [type=reset] {
+    color: #000;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    background-color: #FFF;
+    border-radius: 2px;
+    margin-top: 5px;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+    color: white;
+}
+
+input[type=reset]:hover {
+    background-color: #8b0000;
+    color: white;
+}
+
+
+/* EDIT THIS EVEN MORE HEAVILY */
+/* Contact Form Mobile */
+@media only screen and (max-width: 700px){
+    input[type=text], select, textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ffffff;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 6px;
+        margin-bottom: 16px;
+        resize: vertical;
+        background-color: #ffffff;
+        cursor: default;
+    }
+    /* May need a desktop break bit here ? */
+}
+
+/* Contact Form Desktop / Standard */
+@media only screen and (min-width: 700px){
+    #fname, #lname, #header, #email{
+        width: 95%;
+        padding: 12px;
+        border: 1px solid #ffffff;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 6px;
+        margin-bottom: 16px;
+        resize: vertical;
+        background-color: #ffffff;
+        cursor: default;
+        display: inline-block;
+    }
+
+    #fname:focus, #lname:focus, #header:focus, #email:focus, textarea:focus{
+        border-color: white;
+    }
+
+    .fnamed, .contactEmail{
+        float: left;
+        display: inline-block;
+        width: 50%;
+    }
+
+    .snamed, .messageHeader{
+        float: right;
+        display: inline-block;
+        width: 50%;
+    }
+
+
+    textarea{
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ffffff;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 6px;
+        margin-bottom: 16px;
+        resize: vertical;
+        background-color: #ffffff;
+        cursor: default;
+    }
+}
+
+
+/* Contact END */
